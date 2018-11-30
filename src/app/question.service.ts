@@ -36,7 +36,7 @@ export class QuestionService {
         key: 'mayusculas',
         label: 'Ignorar Mayúsculas',
         type: 'checkbox',
-        // value: 'hola',
+        value: false,
         required: true,
         order: 3
       }),
