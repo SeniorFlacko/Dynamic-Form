@@ -3,18 +3,19 @@
 
   <div [ngSwitch]="question.controlType">
 
-    <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+    <input class="form-control"  *ngSwitchCase="'textbox'" [formControlName]="question.key"
             [id]="question.key" [type]="question.type">
 
-    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+    <select class="form-control"  [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
     </select>
     <ng-container *ngSwitchCase="'checkbox'">
-        <input [formControlName]="question.key" name="mayusculas" [id]="question.key" 
+        <input class="form-control"  [formControlName]="question.key" name="mayusculas" [id]="question.key" 
         [type]="question.type" [(ngModel)]="question.value" (change)="question.value = ck.checked" #ck>
     </ng-container>
   </div> 
-
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
-  <div class="errorMessage" >{{valor}} este es el valor</div>
+  <br>
+  <div class="alert alert-warning" *ngIf="!isValid">{{question.label}} is required</div>
+  <br>
+  <div class="alert alert-primary">{{question.label}} : {{valor}}</div>
 </div> 

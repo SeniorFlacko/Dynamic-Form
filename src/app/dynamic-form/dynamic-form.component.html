@@ -6,15 +6,17 @@
     </div>
 
     <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+      <button type="submit" class="btn btn-primary"  [disabled]="!form.valid">Save</button>
     </div>
   </form>
-
-  <p>
-    {{ form.value | json }}
+  <br>
+  <p class="alert alert-dark">
+   Resultado: {{ form.value | json }}
   </p>
 
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
+  <div *ngIf="payLoad">
+    <strong >Salvaste los siguientes valores: </strong>
+    <br>
+    <div class="alert alert-primary">{{payLoad  | json }}</div>
   </div>
 </div>
